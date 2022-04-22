@@ -73,10 +73,17 @@ public class ProdutoResource {
 //        return repo.save(produto);
 //    }
 
-    @PutMapping("/produtos/{id}")
+//    @PutMapping("/produtos/{id}")
+//    @ApiOperation(value="Edita um produto")
+//    public Produto editar2 (@PathVariable("id") long id, @RequestBody Produto produto){
+//        service.atualizar(id, produto);
+//        return produto;
+//    }
+
+    @PutMapping("/produtos")
     @ApiOperation(value="Edita um produto")
-    public Produto editar2 (@PathVariable("id") long id, @RequestBody Produto produto){
-        service.atualizar(id, produto);
+    public Produto editar3(@RequestBody Produto produto){
+        service.update(produto);
         return produto;
     }
 }
