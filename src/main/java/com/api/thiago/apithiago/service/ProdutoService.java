@@ -8,9 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.persistence.EntityManager;
 import javax.persistence.EntityNotFoundException;
-import javax.persistence.PersistenceContext;
 
 @Service
 @Transactional
@@ -19,8 +17,8 @@ public class ProdutoService {
     @Autowired
     private ProdutoRepository repository;
 
-    @PersistenceContext
-    EntityManager em;
+//    @PersistenceContext
+//    EntityManager em;
 
     public Produto editarValor(long id, Float valor){
         Produto produto = new Produto();
@@ -53,8 +51,12 @@ public class ProdutoService {
         return id;
     }
 
-    public void atualizar(long id, Produto produto){
-        produto.setId(id);
-        em.merge(produto);
+//    public void atualizar(long id, Produto produto){
+//        produto.setId(id);
+//        em.merge(produto);
+//    }
+
+    public void update(Produto produto) {
+        repository.update(produto.getNome(), produto.getFaturado(), produto.getQuantidade(), produto.getValor(), produto.getId());
     }
 }
