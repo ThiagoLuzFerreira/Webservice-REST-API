@@ -1,5 +1,7 @@
 package com.api.thiago.apithiago.domain;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import javax.persistence.*;
 
 @Entity
